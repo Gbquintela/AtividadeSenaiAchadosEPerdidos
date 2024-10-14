@@ -1,0 +1,15 @@
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.AssemblyInfoInputs.cache
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.AssemblyInfo.cs
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.csproj.CoreCompileInputs.cache
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.sourcelink.json
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\bin\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.exe
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\bin\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.deps.json
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\bin\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.runtimeconfig.json
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\bin\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.dll
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\bin\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.pdb
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.dll
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\refint\AtividadeSenaiAchadosEPerdidos.dll
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.pdb
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\AtividadeSenaiAchadosEPerdidos.genruntimeconfig.cache
+C:\Users\gabri\AtividadeSenaiAchadosEPerdidos\obj\Debug\net8.0\ref\AtividadeSenaiAchadosEPerdidos.dll
