@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 class Program
 {
     static void Main()
@@ -31,6 +32,47 @@ class Program
                 Console.Clear();
                 Controller.ObjetosEncontrados();
                 Console.ReadKey(true);
+                continue;
+            }
+
+            if (keyinfo.Key == ConsoleKey.NumPad3 || keyinfo.Key == ConsoleKey.D3)
+            {
+
+                Console.Clear();
+                Controller.LoginSecretaria();
+                Console.Clear();
+                Controller.MenuSecretaria();
+                Console.ReadKey(true);
+                do
+                {   
+                    keyinfo = Console.ReadKey(true);
+
+                    if (keyinfo.Key == ConsoleKey.NumPad1 || keyinfo.Key == ConsoleKey.D1)
+                    {
+                        Console.Clear();
+                        Controller.Relatorio();
+                        Console.ReadKey(true);
+                       break;
+                    }
+
+                    if (keyinfo.Key == ConsoleKey.NumPad2 || keyinfo.Key == ConsoleKey.D2)
+                    {
+                        Console.Clear();
+                        Controller.Editar();
+                        Console.ReadKey(true);
+                        break;
+                    }
+
+                    if (keyinfo.Key == ConsoleKey.NumPad3 || keyinfo.Key == ConsoleKey.D3)
+                    {
+                        Console.Clear();
+                        Controller.Excluir();
+                        Console.ReadKey(true);
+                            break;
+
+                    }
+
+                } while (keyinfo.Key != ConsoleKey.NumPad0 || keyinfo.Key! != ConsoleKey.D0);
             }
             continue;
         } while (keyinfo.Key != ConsoleKey.NumPad0 || keyinfo.Key != ConsoleKey.D0);

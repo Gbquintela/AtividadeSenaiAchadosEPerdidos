@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AtividadeSenaiAchadosEPerdidos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9902823604c50142d17a8f57852132cc45b076b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+19cdaf644c29f19cd4a9310eba2ac69af72b8f01")]
 [assembly: System.Reflection.AssemblyProductAttribute("AtividadeSenaiAchadosEPerdidos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AtividadeSenaiAchadosEPerdidos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
