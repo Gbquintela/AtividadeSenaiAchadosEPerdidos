@@ -111,8 +111,8 @@ public class Controller
 
         foreach (var objeto in ObjList) // Itera sobre a lista de objetos
         {
-            Console.WriteLine("| ID: {0} | Tipo: {1} | Descrição: {2} | Local: {3} | Data: {4} |",
-                objeto.id, objeto.tipo, objeto.descricao, objeto.Local, objeto.DataEncontrado.ToString("dd/MM/yyyy"));
+            Console.WriteLine("| ID: {0} | Tipo: {1} | Descrição: {2} | Local: {3} | Data: {4} | Situação: {5} |",
+                objeto.id, objeto.tipo, objeto.descricao, objeto.Local, objeto.DataEncontrado.ToString("dd/MM/yyyy"), objeto.achado);
 
             Console.WriteLine("=========================================================================");
         }
@@ -129,12 +129,12 @@ public class Controller
         string login = Console.ReadLine()!;
         Console.WriteLine("|                            Senha: ");
         string senha = Console.ReadLine()!;
-
+        Console.Clear();
         // Verifica credenciais
         if (login == "admin" && senha == "admin123")
         {
             Console.WriteLine("                  BEM VINDO AO MENU DA SECRETARIA                            ");
-            Thread.Sleep(3000); // Pausa para visualização
+            Thread.Sleep(2000); // Pausa para visualização
             Console.Clear(); // Limpa a tela
             MenuSecretaria(); // Chama o menu da secretaria
         }
@@ -184,7 +184,7 @@ public class Controller
         Console.WriteLine("Objetos cadastrados:");
         foreach (var objeto in ObjList) // Exibe objetos cadastrados
         {
-            Console.WriteLine("| ID: {0} | Tipo: {1} | Descrição: {2} | Local: {3} | Data: {4} | Situação: {5} |",
+            Console.WriteLine("| ID: {0} | Tipo: {1} | Descrição: {2} | Local: {3} | Data: {4} | Encontrado: {5} |",
                 objeto.id, objeto.tipo, objeto.descricao, objeto.Local, objeto.DataEncontrado.ToString("dd/MM/yyyy"), objeto.achado);
             Console.WriteLine("=========================================================================");
         }
@@ -207,20 +207,19 @@ public class Controller
                 Console.WriteLine("3 - Descrição");
                 Console.WriteLine("4 - Local");
                 Console.WriteLine("5 - Situação (Encontrado/Não encontrado)");
+                Console.WriteLine("0- Sair");
                 Console.Write("Opção: ");
 
                 if (int.TryParse(Console.ReadLine(), out int opcao)) // Lê a opção do usuário
                 {
                     switch (opcao)
                     {
-                        case 0:
-                            Console.WriteLine("Edição cancelada."); // Cancela a edição
-                            return;
+
                         case 1:
                             Console.Write("Novo tipo: ");
                             objetoEditar.tipo = Console.ReadLine()!; // Atualiza tipo
                             break;
-                        case 2:
+                        case 2:0
                             Console.Write("Nova data (dd/MM/yyyy): ");
                             // Tenta atualizar a data
                             if (DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime novaData))
@@ -242,8 +241,23 @@ public class Controller
                             break;
                         case 5:
                             Console.WriteLine("Deseja marcar o objeto como encontrado? (s/n)");
-                            objetoEditar.achado = Console.ReadLine()!.ToLower() == "s"; // Atualiza situação
+                            string resposta = Console.ReadLine()!.ToLower();
+                            if (resposta == "s")
+                            {
+                                objetoEditar.achado = true; // Marca como encontrado
+                            }
+                            else if (resposta == "n")
+                            {
+                                objetoEditar.achado = false; // Marca como não encontrado
+                            }
+                            else
+                            {
+                                Console.WriteLine("Opção inválida. A situação não foi alterada."); // Valida a entrada
+                            }
                             break;
+                        case 0:
+                            Console.WriteLine("Edição cancelada."); // Cancela a edição
+                            return;
                         default:
                             Console.WriteLine("Opção inválida."); // Trata opção inválida
                             break;
@@ -283,7 +297,7 @@ public class Controller
         Console.WriteLine("Objetos cadastrados:");
         foreach (var objeto in ObjList) // Exibe objetos cadastrados
         {
-            Console.WriteLine("| ID: {0} | Tipo: {1} | Descrição: {2} | Local: {3} | Data: {4} | Situação: {5} |",
+            Console.WriteLine("| ID: {0} | Tipo: {1} | Descrição: {2} | Local: {3} | Data: {4} | Encontrado: {5} |",
                 objeto.id, objeto.tipo, objeto.descricao, objeto.Local, objeto.DataEncontrado.ToString("dd/MM/yyyy"), objeto.achado);
             Console.WriteLine("=========================================================================");
         }
