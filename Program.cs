@@ -22,9 +22,7 @@ class Program
                 {
                     Console.WriteLine("Pressione qualquer tecla para voltar ao menu principal...");
                     Console.ReadKey(true);
-
                 }
-
             }
 
             if (keyinfo.Key == ConsoleKey.NumPad2 || keyinfo.Key == ConsoleKey.D2)
@@ -37,14 +35,13 @@ class Program
 
             if (keyinfo.Key == ConsoleKey.NumPad3 || keyinfo.Key == ConsoleKey.D3)
             {
-
                 Console.Clear();
                 Controller.LoginSecretaria();
-                Console.Clear();
-                Controller.MenuSecretaria();
-                Console.ReadKey(true);
                 do
                 {   
+                    Console.Clear();
+                    Controller.MenuSecretaria();
+                    Console.ReadKey(true);
                     keyinfo = Console.ReadKey(true);
 
                     if (keyinfo.Key == ConsoleKey.NumPad1 || keyinfo.Key == ConsoleKey.D1)
@@ -52,15 +49,16 @@ class Program
                         Console.Clear();
                         Controller.Relatorio();
                         Console.ReadKey(true);
-                       break;
                     }
 
                     if (keyinfo.Key == ConsoleKey.NumPad2 || keyinfo.Key == ConsoleKey.D2)
                     {
                         Console.Clear();
                         Controller.Editar();
+                            if (false){
+                                return;
+                            }
                         Console.ReadKey(true);
-                        break;
                     }
 
                     if (keyinfo.Key == ConsoleKey.NumPad3 || keyinfo.Key == ConsoleKey.D3)
@@ -68,8 +66,6 @@ class Program
                         Console.Clear();
                         Controller.Excluir();
                         Console.ReadKey(true);
-                            break;
-
                     }
 
                 } while (keyinfo.Key != ConsoleKey.NumPad0 || keyinfo.Key! != ConsoleKey.D0);

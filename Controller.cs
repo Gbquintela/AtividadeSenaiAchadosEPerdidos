@@ -39,7 +39,7 @@ public class Controller
     public static bool cadastroObeto()
     {
         Console.WriteLine("=========================================================================");
-        Console.WriteLine("|                Cadastre o Objeto achado:                              |");
+        Console.WriteLine("|                        Cadastre o Objeto achado:                      |");
         Console.WriteLine("=========================================================================");
 
         while (true)
@@ -106,7 +106,7 @@ public class Controller
         }
 
         Console.WriteLine("=========================================================================");
-        Console.WriteLine("|                Objetos Achados:                                       |");
+        Console.WriteLine("|                           Objetos Achados:                            |");
         Console.WriteLine("=========================================================================");
 
         foreach (var objeto in ObjList) // Itera sobre a lista de objetos
@@ -125,9 +125,9 @@ public class Controller
         Console.WriteLine("|                           ACESSO SECRETARIA                           |");
         Console.WriteLine("=========================================================================");
         Console.WriteLine("|                                                                       |");
-        Console.WriteLine("|                            Login: ");
+        Console.Write("                             Login: ");
         string login = Console.ReadLine()!;
-        Console.WriteLine("|                            Senha: ");
+        Console.Write("                             Senha: ");
         string senha = Console.ReadLine()!;
         Console.Clear();
         // Verifica credenciais
@@ -169,8 +169,10 @@ public class Controller
     }
 
     // Edita um objeto existente
-    public static void Editar()
+    public static bool Editar()
     {
+        ConsoleKeyInfo keyinfoupdate;
+
         Console.WriteLine("======================================================");
         Console.WriteLine("|             Editar Achados e Perdidos              |");
         Console.WriteLine("=====================================================|");
@@ -185,7 +187,7 @@ public class Controller
         foreach (var objeto in ObjList) // Exibe objetos cadastrados
         {
             Console.WriteLine("| ID: {0} | Tipo: {1} | Descrição: {2} | Local: {3} | Data: {4} | Encontrado: {5} |",
-                objeto.id, objeto.tipo, objeto.descricao, objeto.Local, objeto.DataEncontrado.ToString("dd/MM/yyyy"), objeto.achado);
+            objeto.id, objeto.tipo, objeto.descricao, objeto.Local, objeto.DataEncontrado.ToString("dd/MM/yyyy"), objeto.achado);
             Console.WriteLine("=========================================================================");
         }
 
@@ -198,9 +200,7 @@ public class Controller
                 Console.WriteLine("Objeto não encontrado."); // Verifica se o objeto existe
                 return;
             }
-
-            while (true)
-            {
+            
                 Console.WriteLine("Digite o número do campo que deseja editar (ou 0 para sair):");
                 Console.WriteLine("1 - Tipo");
                 Console.WriteLine("2 - Data");
@@ -208,77 +208,98 @@ public class Controller
                 Console.WriteLine("4 - Local");
                 Console.WriteLine("5 - Situação (Encontrado/Não encontrado)");
                 Console.WriteLine("0- Sair");
-                Console.Write("Opção: ");
+                keyinfoupdate = Console.ReadKey(true);
 
-                if (int.TryParse(Console.ReadLine(), out int opcao)) // Lê a opção do usuário
-                {
-                    switch (opcao)
-                    {
-
-                        case 1:
-                            Console.Write("Novo tipo: ");
-                            objetoEditar.tipo = Console.ReadLine()!; // Atualiza tipo
-                            break;
-                        case 2:0
-                            Console.Write("Nova data (dd/MM/yyyy): ");
-                            // Tenta atualizar a data
-                            if (DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime novaData))
-                            {
-                                objetoEditar.DataEncontrado = novaData;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Data inválida."); // Valida data
-                            }
-                            break;
-                        case 3:
-                            Console.Write("Nova descrição: ");
-                            objetoEditar.descricao = Console.ReadLine()!; // Atualiza descrição
-                            break;
-                        case 4:
-                            Console.Write("Novo local: ");
-                            objetoEditar.Local = Console.ReadLine()!; // Atualiza local
-                            break;
-                        case 5:
-                            Console.WriteLine("Deseja marcar o objeto como encontrado? (s/n)");
-                            string resposta = Console.ReadLine()!.ToLower();
-                            if (resposta == "s")
-                            {
-                                objetoEditar.achado = true; // Marca como encontrado
-                            }
-                            else if (resposta == "n")
-                            {
-                                objetoEditar.achado = false; // Marca como não encontrado
-                            }
-                            else
-                            {
-                                Console.WriteLine("Opção inválida. A situação não foi alterada."); // Valida a entrada
-                            }
-                            break;
-                        case 0:
-                            Console.WriteLine("Edição cancelada."); // Cancela a edição
-                            return;
-                        default:
-                            Console.WriteLine("Opção inválida."); // Trata opção inválida
-                            break;
-                    }
+                if(ConsoleKeyInfo == ConsoleKey.NumPad1 || ConsoleKeyInfo == ConsoleKey.D1){
+                    
+                    return;
                 }
-                else
-                {
-                    Console.WriteLine("Opção inválida."); // Trata entrada inválida
+                if(ConsoleKeyInfo == ConsoleKey.NumPad0 || ConsoleKeyInfo == ConsoleKey.D0){
+                    return false;
                 }
 
-                Console.Write("Deseja editar outro campo? (s/n): ");
-                if (Console.ReadLine()!.ToLower() != "s")
-                {
-                    continue; // Sai do loop se o usuário não quiser continuar editando
-                }
-            }
+            // while (true)
+            // {
+            //     Console.WriteLine("Digite o número do campo que deseja editar (ou 0 para sair):");
+            //     Console.WriteLine("1 - Tipo");
+            //     Console.WriteLine("2 - Data");
+            //     Console.WriteLine("3 - Descrição");
+            //     Console.WriteLine("4 - Local");
+            //     Console.WriteLine("5 - Situação (Encontrado/Não encontrado)");
+            //     Console.WriteLine("0- Sair");
+            //     Console.Write("Opção: ");
+
+            //     if (int.TryParse(Console.ReadLine(), out int opcao)) // Lê a opção do usuário
+            //     {
+            //         switch (opcao)
+            //         {
+            //             case 1:
+            //                 Console.Write("Novo tipo: ");
+            //                 objetoEditar.tipo = Console.ReadLine()!; // Atualiza tipo
+            //                 break;
+            //             case 2:
+            //                 Console.Write("Nova data (dd/MM/yyyy): ");
+            //                 // Tenta atualizar a data
+            //                 if (DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime novaData))
+            //                 {
+            //                     objetoEditar.DataEncontrado = novaData;
+            //                 }
+            //                 else
+            //                 {
+            //                     Console.WriteLine("Data inválida."); // Valida data
+            //                 }
+            //                 break;
+            //             case 3:
+            //                 Console.Write("Nova descrição: ");
+            //                 objetoEditar.descricao = Console.ReadLine()!; // Atualiza descrição
+            //                 break;
+            //             case 4:
+            //                 Console.Write("Novo local: ");
+            //                 objetoEditar.Local = Console.ReadLine()!; // Atualiza local
+            //                 break;
+            //             case 5:
+            //                 Console.WriteLine("Deseja marcar o objeto como encontrado? (s/n)");
+            //                 string resposta = Console.ReadLine()!.ToLower();
+            //                 if (resposta == "s")
+            //                 {
+            //                     objetoEditar.achado = true; // Marca como encontrado
+            //                 }
+            //                 else if (resposta == "n")
+            //                 {
+            //                     objetoEditar.achado = false; // Marca como não encontrado
+            //                 }
+            //                 else
+            //                 {
+            //                     Console.WriteLine("Opção inválida. A situação não foi alterada."); // Valida a entrada
+            //                 }
+            //                 break;
+            //             case 0:
+            //                 Console.WriteLine("Edição cancelada."); // Cancela a edição
+            //                 return;
+            //             default:
+            //                 // Console.WriteLine("Opção inválida."); // Trata opção inválida
+            //                 // break;
+            //                 // Aqui te recomendaria usar apenas isso:
+            //                 continue;
+            //         }
+            //     }
+            //     else
+            //     {
+            //         Console.WriteLine("Opção inválida."); // Trata entrada inválida
+            //     }
+
+            //     Console.Write("Deseja editar outro campo? (s/n): ");
+            //     if (Console.ReadLine()!.ToLower() != "s")
+            //     {
+            //         continue; // Sai do loop se o usuário não quiser continuar editando
+            //     }
+            // }
         }
-        else
-        {
-            Console.WriteLine("ID inválido."); // Valida ID
-        }
+        // else
+        // {
+        //     Console.WriteLine("ID inválido."); // Valida ID
+        // }
+        return true;
     }
 
     // Exclui um objeto da lista
